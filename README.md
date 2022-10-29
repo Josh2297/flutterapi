@@ -13,12 +13,16 @@ To install the package via pip use:
 ```bash
   pip install flwave
 ```
+
+```javascript
+from flwave import flwaveapi
+```
     
 ## Usage/Examples
 1. To Initiate a transaction:
 
 ```javascript
-from flwave import flwaveapi
+from flwaveapi import create_transaction
 ```
 
 2. To Verfify A Transaction Using Transaction Reference:
@@ -53,11 +57,12 @@ from flwaveapi import transaction_details
 
 | Funtion |Required Arguments     | Description                |
 | :-------- | :------- | :------------------------- |
-| `create_transaction` | key`string`, amount`float`, e-mail`string`, redirect_url`string`, url`string`|This function makes a POST request to flutterwave payment API and returns a unique payment link.
-| `verify_transaction`|  key`string` |This function makes a GET request to flutterwave verify Transaction API and returns a Dict Containing Details of Transaction. |
+| `create_transaction` | key`string`, amount`float`, e-mail`string`, redirect_url`string`|This function makes a POST request to flutterwave payment API and returns a unique payment link.
+| `verify_transaction`|  key`string`,txn_ref`string` |This function makes a GET request to flutterwave verify Transaction API and returns a Dict Containing Details of Transaction. |
 | `make_refund` | key`string`, txn_id`int` |  This function makes a POST request to make a refund in a disputed Transaction.|
 | `transaction_details` |key`string` | This function makes a GET request to flutterwave and returns a Dict Containing Details of Transaction. |
 
+more parameters and detailed descriptions about the functions can be gotten by used the help function . example help(create_transaction)
 
 The Output of each Function above is a python dictionary.This dictionary should be parsed to retrieve needed information.
 ## Contributing
